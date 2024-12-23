@@ -1,13 +1,11 @@
-// script.js
+
 
 const skipPromptKey = 'skipPrompt';
 
-// Dark Mode Toggle
 const body = document.body;
 const toggleBtn = document.getElementById('darkModeToggle');
 
 if (toggleBtn) {
-  // Initialize theme based on localStorage
   const savedTheme = localStorage.getItem('theme') || 'dark';
   body.classList.add(`${savedTheme}-mode`);
   toggleBtn.textContent = savedTheme === 'dark' ? '☽' : '☀';
@@ -27,7 +25,6 @@ if (toggleBtn) {
   });
 }
 
-// References Page Buttons (references.html)
 const btnBlog = document.getElementById('btnBlog');
 const btnAnalysis = document.getElementById('btnAnalysis');
 
@@ -45,20 +42,20 @@ if (btnAnalysis) {
   });
 }
 
-// Welcome Modal Elements (index.html)
+
 const welcomeModal = document.getElementById('welcomeModal');
 const modalBlogBtn = document.getElementById('modalBlogBtn');
 const modalChartBtn = document.getElementById('modalChartBtn');
 
-// Sections on index.html
+
 const blogPostSection = document.getElementById('blogPostSection');
 const analysisChartSection = document.getElementById('analysisChartSection');
 
-// Buttons on index.html
+
 const backToBlogBtn = document.getElementById('backToBlogBtn');
 const goToReferencesBtn = document.getElementById('goToReferencesBtn');
 
-// Navigation Animation Logic
+
 function updateNavigation(view) {
     const nav = document.querySelector('.top-nav ul');
     const menuItems = nav.querySelectorAll('li');
@@ -67,9 +64,9 @@ function updateNavigation(view) {
         const link = item.querySelector('a');
         if (!link) return;
 
-        // Identify menu items by their id
+        
         if (link.id === 'referencesLink') {
-            // References should always be visible
+            
             item.classList.remove('hidden');
             return;
         }
@@ -83,7 +80,7 @@ function updateNavigation(view) {
             return;
         }
 
-        // Handle other menu items
+        
         if (view === 'blog') {
             item.classList.remove('hidden');
         } else {
@@ -92,23 +89,23 @@ function updateNavigation(view) {
     });
 }
 
-// Define showBlogPost and showPoemAnalysis if they aren't already defined
+
 if (typeof window.showBlogPost !== 'function') {
   window.showBlogPost = function() {
     if (blogPostSection) {
-      // Animate showing the blog post section
+      
       blogPostSection.style.display = 'block';
       blogPostSection.classList.remove('hidden-section');
       blogPostSection.classList.add('visible-section');
     }
     if (analysisChartSection) {
-      // Animate hiding the poem analysis section
+      
       analysisChartSection.classList.remove('visible-section');
       analysisChartSection.classList.add('hidden-section');
-      // After animation, set display to none
+      
       setTimeout(() => {
         analysisChartSection.style.display = 'none';
-      }, 600); // Match the CSS transition duration (0.6s)
+      }, 600); 
     }
     updateNavigation('blog');
   };
@@ -117,16 +114,16 @@ if (typeof window.showBlogPost !== 'function') {
 if (typeof window.showPoemAnalysis !== 'function') {
   window.showPoemAnalysis = function() {
     if (blogPostSection) {
-      // Animate hiding the blog post section
+      
       blogPostSection.classList.remove('visible-section');
       blogPostSection.classList.add('hidden-section');
-      // After animation, set display to none
+      
       setTimeout(() => {
         blogPostSection.style.display = 'none';
-      }, 600); // Match the CSS transition duration (0.6s)
+      }, 600); 
     }
     if (analysisChartSection) {
-      // Animate showing the poem analysis section
+      
       analysisChartSection.style.display = 'block';
       analysisChartSection.classList.remove('hidden-section');
       analysisChartSection.classList.add('visible-section');
@@ -135,7 +132,7 @@ if (typeof window.showPoemAnalysis !== 'function') {
   };
 }
 
-// Handle initial state based on URL hash
+
 document.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash;
     if (hash === '#analysisChartSection') {
@@ -143,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (hash === '#goToBlog') {
         showBlogPost();
     } else {
-        // Default behavior: show blog post section
+        
         if (blogPostSection) {
             blogPostSection.style.display = 'block';
             blogPostSection.classList.add('visible-section');
@@ -156,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Handle hash changes
+
 window.addEventListener('hashchange', () => {
     const hash = window.location.hash;
     if (hash === '#analysisChartSection') {
@@ -164,7 +161,7 @@ window.addEventListener('hashchange', () => {
     } else if (hash === '#goToBlog') {
         showBlogPost();
     } else {
-        // Default behavior: show blog post section
+        
         if (blogPostSection) {
             blogPostSection.style.display = 'block';
             blogPostSection.classList.remove('hidden-section');
@@ -179,7 +176,7 @@ window.addEventListener('hashchange', () => {
     }
 });
 
-// Function to Show Both Sections (Default)
+
 function showBothSections() {
     if (blogPostSection) {
         blogPostSection.style.display = 'block';
@@ -191,14 +188,14 @@ function showBothSections() {
     }
 }
 
-// Show the welcome modal only once per session (index.html)
+
 if (welcomeModal && !localStorage.getItem(skipPromptKey)) {
     window.addEventListener('load', () => {
         welcomeModal.classList.add('show-modal');
     });
 }
 
-// If user picks "Blog Post" in the modal (index.html)
+
 if (modalBlogBtn) {
     modalBlogBtn.addEventListener('click', () => {
         localStorage.setItem(skipPromptKey, 'true');
@@ -207,7 +204,7 @@ if (modalBlogBtn) {
     });
 }
 
-// If user picks "Poem Analysis" in the modal (index.html)
+
 if (modalChartBtn) {
     modalChartBtn.addEventListener('click', () => {
         localStorage.setItem(skipPromptKey, 'true');
@@ -216,7 +213,7 @@ if (modalChartBtn) {
     });
 }
 
-// "Go to Blog Post" Button in Poem Analysis Section (index.html)
+
 if (backToBlogBtn) {
     backToBlogBtn.addEventListener('click', () => {
         localStorage.setItem(skipPromptKey, 'true');
@@ -224,7 +221,7 @@ if (backToBlogBtn) {
     });
 }
 
-// "View References" Button in Blog Post Section (index.html)
+
 if (goToReferencesBtn) {
     goToReferencesBtn.addEventListener('click', () => {
         localStorage.setItem(skipPromptKey, 'true');
