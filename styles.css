@@ -1,6 +1,6 @@
+/* ---------- Global Styles ---------- */
 html {
     scroll-behavior: smooth;
-   
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -8,31 +8,78 @@ body {
     margin: 0;
     font-family: 'Open Sans', Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: #FAF5EC url('subtle-pattern.png') repeat;
-   
+    color: #EAE4DC; /* Light text by default for dark mode */
+    background: #2E2A25 url('subtle-pattern.png') repeat; /* Dark mode background by default */
     transition: background-color 0.3s ease, color 0.3s ease;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, Main, Footer */
+    min-height: 100vh;
 }
 
-
-body.dark-mode {
-    background: #2E2A25 url('subtle-pattern.png') repeat;
-    color: #EAE4DC;
+body.light-mode {
+    background: #FAF5EC url('subtle-pattern.png') repeat; /* Light mode background */
+    color: #333; /* Dark text for light mode */
 }
 
+body.light-mode .top-nav {
+    background: #FFF5EB;
+    color: #8B5E3C;
+}
 
+body.light-mode .top-nav a {
+    color: #8B5E3C;
+}
+
+body.light-mode .top-nav a:hover {
+    background: #8B5E3C;
+    color: #fff;
+}
+
+body.light-mode .content {
+    background: #FFF9F3;
+    color: #333;
+    border-color: #E6DACB;
+}
+
+body.light-mode .site-footer {
+    background: #333;
+    color: #fff;
+}
+
+body.light-mode .image-container figcaption {
+    color: #5C4A3B;
+}
+
+body.light-mode .section-block h2 {
+    color: #8B5E3C;
+}
+
+body.light-mode .analysis-table th,
+body.light-mode .analysis-table td {
+    border-color: #E6DACB;
+}
+
+body.light-mode .analysis-table thead {
+    background: #FFF5EB;
+}
+
+body.light-mode .dark-mode-toggle {
+    background: #8B5E3C;
+    color: #fff;
+}
+
+/* ---------- Header ---------- */
 .site-header {
     background: url('indigenous.jpg') no-repeat center 70%/cover;
-    position: relative; 
+    position: relative;
     color: #fff;
     padding: 5rem 2rem;
     text-align: center;
-    border-bottom: 5px solid #8B5E3C;
+    border-bottom: 5px solid #C19A78;
     border-radius: 0 0 10px 10px;
     overflow: hidden;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
 
 .site-header::before {
     content: "";
@@ -42,7 +89,6 @@ body.dark-mode {
     z-index: 1;
     mix-blend-mode: multiply;
 }
-
 
 .header-content {
     position: relative;
@@ -72,51 +118,133 @@ body.dark-mode {
     text-shadow: none;
 }
 
-
+/* ---------- Navigation ---------- */
 .top-nav {
-    background: #FFF5EB; 
+    background: #3C342E; /* Dark mode nav background */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-bottom: 2px dotted #8B5E3C;
+    border-bottom: 2px dotted #C19A78;
     border-radius: 0 0 8px 8px;
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    width: 100%; /* Ensure nav spans full width */
 }
 
 .top-nav ul {
-    list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the navigation items */
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
     margin: 0;
-    padding: 0.75rem;
+    list-style: none;
+    transition: all 0.6s ease; /* Increased transition duration */
 }
 
 .top-nav li {
-    margin: 0 1.5rem;
+    position: relative; /* Needed for pseudo-elements */
+    transition: transform 0.6s ease, opacity 0.6s ease; /* Increased transition duration */
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.top-nav li.hidden {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+    /* Remove space by setting width to 0 and margin to 0 */
+    width: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: transform 0.6s ease, opacity 0.6s ease; /* Match transition duration */
 }
 
 .top-nav a {
+    position: relative; /* For pseudo-element */
     text-decoration: none;
-    color: #8B5E3C;
+    color: #EAE4DC;
     font-weight: 600;
     font-family: 'Merriweather', serif;
     font-size: 1rem;
     padding: 0.5rem 0.75rem;
     border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden; /* Prevent pseudo-element from overflowing */
 }
 
-.top-nav a:hover {
-    color: #fff;
-    background: #8B5E3C;
+/* Dynamic Color Effects for References, Poem Analysis Chart, and Blog Post */
+@keyframes colorCycle {
+    0% { color: #EAE4DC; }
+    25% { color: #C19A78; }
+    50% { color: #8B5E3C; }
+    75% { color: #C19A78; }
+    100% { color: #EAE4DC; }
 }
 
+#referencesLink, #goToChartLink, #blogPostLink {
+    animation: colorCycle 5s infinite;
+    transition: color 0.3s ease;
+}
 
+#referencesLink:hover, #goToChartLink:hover, #blogPostLink:hover {
+    animation: none; /* Stop animation on hover */
+    color: #fff; /* Change to white on hover */
+}
+
+/* Pseudo-element for hover effect */
+#referencesLink::before, #goToChartLink::before, #blogPostLink::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.5s ease; /* Specify which property to transition */
+}
+
+/* Fixing the lighting glitch by ensuring overflow is hidden */
+.top-nav a {
+    overflow: hidden; /* Prevent pseudo-element from causing hover flicker */
+}
+
+/* Correct hover transition */
+#referencesLink:hover::before, #goToChartLink:hover::before, #blogPostLink:hover::before {
+    left: 100%;
+}
+
+/* Light mode overrides for hover effect */
+body.light-mode #referencesLink::before, 
+body.light-mode #goToChartLink::before,
+body.light-mode #blogPostLink::before {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(139, 94, 60, 0.2),
+      transparent
+    );
+}
+
+/* ---------- Section Animations ---------- */
+.visible-section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Increased transition duration */
+}
+
+.hidden-section {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Increased transition duration */
+}
+
+/* ---------- Main Content ---------- */
 .content {
     max-width: 850px;
     margin: 2rem auto;
     padding: 0 1rem;
-    background: #FFF9F3;
+    background: #3C342E; /* Dark mode content background */
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border: 2px solid #E6DACB;
+    border: 2px solid #C19A78;
     border-radius: 8px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -125,7 +253,7 @@ body.dark-mode {
     padding: 2rem;
 }
 
-
+/* ---------- Section Blocks ---------- */
 .section-block {
     margin-bottom: 2.5rem;
     transition: color 0.3s ease;
@@ -136,7 +264,7 @@ body.dark-mode {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     position: relative;
-    color: #8B5E3C;
+    color: #C19A78;
     font-family: 'Merriweather', serif;
     text-align: left;
     transition: color 0.3s ease;
@@ -152,7 +280,7 @@ body.dark-mode {
     vertical-align: middle;
 }
 
-
+/* ---------- Images & Captions ---------- */
 .image-container {
     margin: 2rem 0;
     text-align: center;
@@ -161,7 +289,7 @@ body.dark-mode {
 .image-container img {
     max-width: 100%;
     height: auto;
-    border: 3px solid #E6DACB;
+    border: 3px solid #C19A78;
     border-radius: 6px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -173,222 +301,18 @@ body.dark-mode {
 
 .image-container figcaption {
     font-size: 0.9rem;
-    color: #5C4A3B;
+    color: #EAE4DC; /* Light text */
     margin-top: 0.5rem;
-    font-style: italic;
     font-family: 'Open Sans', sans-serif;
+    font-style: normal;
     transition: color 0.3s ease;
 }
 
-
-.poem-excerpt {
-    background: #F0ECE7;
-    border-left: 4px solid #8B5E3C;
-    padding: 1rem;
+.image-title {
     font-style: italic;
-    margin: 1.5rem 0;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-    font-family: 'Merriweather', serif;
-    color: #463B33;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.poem-excerpt cite {
-    display: block;
-    text-align: right;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #5C4A3B;
-    font-family: 'Open Sans', sans-serif;
-    transition: color 0.3s ease;
-}
-
-
-.site-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 2rem;
-    margin-top: 2rem;
-    border-top: 5px solid #8B5E3C;
-    font-size: 0.9rem;
-    font-family: 'Merriweather', serif;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-
-body.dark-mode {
-    background: #2E2A25 url('subtle-pattern.png') repeat;
-    color: #EAE4DC;
-}
-
-body.dark-mode .site-header {
-    border-bottom-color: #C19A78;
-}
-
-body.dark-mode .top-nav {
-    background: #3C342E;
-    border-bottom-color: #C19A78;
-}
-
-body.dark-mode .top-nav a {
-    color: #E9D9C4;
-}
-
-body.dark-mode .top-nav a:hover {
-    background: #C19A78;
-    color: #2E2A25;
-}
-
-body.dark-mode .content {
-    background: #3C342E;
-    border-color: #C19A78;
-}
-
-body.dark-mode .section-block h2 {
-    color: #C19A78;
-}
-
-body.dark-mode .poem-excerpt {
-    background: #473E35;
-    border-left-color: #C19A78;
-    color: #E9D9C4;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
-}
-
-body.dark-mode .image-container img {
-    border-color: #C19A78;
-}
-
-body.dark-mode .image-container figcaption {
-    color: #D9C8B4;
-}
-
-body.dark-mode .site-footer {
-    background: #1F1B18;
-    border-top-color: #C19A78;
-}
-
-
-.dark-mode-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #8B5E3C;
-    color: #fff;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    line-height: 50px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.dark-mode-toggle:hover {
-    background: #6f452e;
-}
-
-body.dark-mode .dark-mode-toggle {
-    background: #C19A78;
-    color: #2E2A25;
-}
-
-.welcome-modal {
-    position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-
-.welcome-modal::before {
-    content: "";
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0;
-    backdrop-filter: blur(6px);
-    background: rgba(0,0,0,0.5);
-    z-index: 1;
-}
-
-
-.welcome-modal.show-modal {
-    display: flex;
-    opacity: 1;   
-}
-
-.welcome-modal.fade-out {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.welcome-modal-content {
-    position: relative;
-    z-index: 2; 
-    background: #222; 
-    color: #f2f2f2;   
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    width: 90%;
-    max-width: 450px;
-    animation: scaleIn 0.4s ease; 
-}
-
-@keyframes scaleIn {
-  0%   { transform: scale(0.8); }
-  100% { transform: scale(1); }
-}
-
-.welcome-modal-content h2 {
-    margin-top: 0;
-    font-family: 'Merriweather', serif;
-    color: #fff;
-}
-
-.welcome-modal-content p {
-    font-family: 'Open Sans', sans-serif;
-    margin-bottom: 1.5rem;
-    color: #ddd;
-}
-
-.btn-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.modal-btn {
-    background: #8B5E3C;
-    color: #fff;
-    border: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 6px;
-    font-family: 'Merriweather', serif;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.modal-btn:hover {
-    background: #6f452e;
-    transform: translateY(-1px);
-}
-
+/* ---------- Analysis Table ---------- */
 .analysis-table-wrapper {
     overflow-x: auto;
     margin-top: 1rem;
@@ -403,18 +327,18 @@ body.dark-mode .dark-mode-toggle {
 
 .analysis-table th,
 .analysis-table td {
-    border: 1px solid #E6DACB;
+    border: 1px solid #C19A78;
     padding: 1rem;
     vertical-align: top;
 }
 
 .analysis-table thead {
-    background: #FFF5EB;
+    background: #C19A78;
 }
 
 .analysis-table th {
     text-align: left;
-    color: #8B5E3C;
+    color: #2E2A25;
     font-weight: 700;
 }
 
@@ -423,10 +347,143 @@ body.dark-mode .dark-mode-toggle {
     padding-left: 1.2rem;
 }
 
+/* ---------- Footer ---------- */
+.site-footer {
+    background: #1F1B18;
+    color: #EAE4DC;
+    text-align: center;
+    padding: 1rem 2rem;
+    border-top: 5px solid #C19A78;
+    font-family: 'Merriweather', serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
 
-#backToBlogBtn {
+/* ---------- Dark Mode Overrides ---------- */
+/* Already handled by body.dark-mode and body.light-mode */
+
+/* ---------- Dark Mode Toggle ---------- */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #C19A78;
+    color: #2E2A25;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 50px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
     background: #8B5E3C;
     color: #fff;
+}
+
+body.dark-mode .dark-mode-toggle {
+    background: #C19A78;
+    color: #2E2A25;
+}
+
+/* ---------- Welcome Modal ---------- */
+.welcome-modal {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.welcome-modal::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.welcome-modal.show-modal {
+    display: flex;
+    opacity: 1;
+}
+
+.welcome-modal.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.welcome-modal-content {
+    position: relative;
+    z-index: 2;
+    background: #2E2A25;
+    color: #EAE4DC;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+    animation: scaleIn 0.4s ease;
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+.welcome-modal-content h2 {
+    margin-top: 0;
+    font-family: 'Merriweather', serif;
+    color: #EAE4DC;
+}
+
+.welcome-modal-content p {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 1.5rem;
+    color: #D4AF37;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.modal-btn {
+    background: #C19A78;
+    color: #2E2A25;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-family: 'Merriweather', serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.modal-btn:hover {
+    background: #8B5E3C;
+    transform: translateY(-1px);
+}
+
+/* ---------- Buttons in Analysis or End of Post ---------- */
+#backToBlogBtn {
+    background: #C19A78;
+    color: #2E2A25;
     border: none;
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
@@ -438,27 +495,118 @@ body.dark-mode .dark-mode-toggle {
 }
 
 #backToBlogBtn:hover {
-    background: #6f452e;
+    background: #8B5E3C;
     transform: translateY(-1px);
 }
 
-#goToChartLink {
-    color: #D4AF37;
-    animation: subtleGold 3s infinite ease-in-out;
-    font-weight: 700;
+/* ---------- Hidden Analysis by Default ---------- */
+.hidden-analysis {
+    display: none;
 }
 
-@keyframes subtleGold {
-    0% {
-        color: #C19A78;
-        transform: scale(1);
-    }
-    50% {
-        color: #E9D9C4;
-        transform: scale(1.05);
-    }
-    100% {
-        color: #C19A78;
-        transform: scale(1);
-    }
+/* ---------- References Page Styles ---------- */
+
+/* Default Styles (Dark Mode) */
+.references-container {
+    max-width: 850px;
+    margin: 2rem auto;
+    text-align: center;
+    flex: 1;
+}
+
+.references-page-title {
+    font-family: "Merriweather", serif;
+    font-size: 2rem;
+    color: #C19A78;
+    margin-bottom: 1.5rem;
+}
+
+.references-list {
+    list-style-type: none;
+    margin: 2rem 0;
+    padding: 0;
+    text-align: left;
+    color: #EAE4DC;
+    word-wrap: break-word;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.references-list li {
+    margin-bottom: 1rem;
+}
+
+.references-btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.references-btn {
+    background: #C19A78;
+    color: #2E2A25;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-family: 'Merriweather', serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.references-btn:hover {
+    background: #8B5E3C;
+    transform: translateY(-1px);
+    color: #fff;
+}
+
+.site-footer {
+    margin-top: auto; /* Pushes footer to bottom */
+    background: #1F1B18;
+    color: #EAE4DC;
+    text-align: center;
+    padding: 1rem 2rem;
+    border-top: 5px solid #C19A78;
+    font-family: 'Merriweather', serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ---------- Light Mode Overrides for References Page ---------- */
+body.light-mode .references-page-title {
+    color: #8B5E3C;
+}
+
+body.light-mode .references-list {
+    color: #333; /* Dark text for light background */
+}
+
+body.light-mode .references-btn {
+    background: #8B5E3C;
+    color: #fff;
+}
+
+body.light-mode .references-btn:hover {
+    background: #C19A78;
+    color: #2E2A25;
+}
+
+body.light-mode .site-footer {
+    background: #333;
+    color: #fff;
+}
+
+/* ---------- Specific Link Styles ---------- */
+
+/* Dark Mode: Links in under-image texts and references page */
+body.dark-mode .image-container figcaption a,
+body.dark-mode .references-list a {
+    color: #FFFFFF !important; /* White */
+    text-decoration: underline;
+}
+
+/* Light Mode: Links in under-image texts and references page */
+body.light-mode .image-container figcaption a,
+body.light-mode .references-list a {
+    color: #8B5E3C !important; /* Brown */
+    text-decoration: underline;
 }

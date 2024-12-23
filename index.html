@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
   <title>Blog Post - "I Lost My Talk"</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
 </head>
-<body class="dark-mode">
+<body>
 
+  <!-- Welcome Modal -->
   <div class="welcome-modal" id="welcomeModal">
     <div class="welcome-modal-content">
-      <h2>ENG4U | 2.3 | The power of words</h2>
+      <h2>ENG4U | 2.3 | The Power of Words</h2>
       <p>Please choose where you’d like to start:</p>
       <div class="btn-container">
         <button class="modal-btn" id="modalBlogBtn">Blog Post</button>
@@ -22,25 +23,27 @@
 
   <header class="site-header">
     <div class="header-content">
-      <h1 class="blog-title">"I Lost My Talk": Reflecting, reclaiming, forgiving </h1>
+      <h1 class="blog-title">"I Lost My Talk": Reflecting, Reclaiming, Forgiving</h1>
       <p class="blog-subtitle">An Exploration of Cultural Loss and Resilience</p>
     </div>
   </header>
-  
+
   <nav class="top-nav">
     <ul>
+      <li><a href="references.html" id="referencesLink">References</a></li>
       <li><a href="#introduction">Introduction</a></li>
       <li><a href="#analysis">Analysis</a></li>
       <li><a href="#relevance">Relevance & Timelessness</a></li>
       <li><a href="#conclusion">Conclusion</a></li>
-
-      <li><a href="#" id="goToChartLink">Poem Analysis Chart</a></li>
+      <li class="hidden" id="blogPostLinkItem"><a href="#blogPostSection" id="blogPostLink">Blog Post</a></li>
+      <li><a href="#analysisChartSection" id="goToChartLink">Poem Analysis Chart</a></li>
     </ul>
-  </nav>
+  </nav>  
+  
 
   <main class="content">
+    <!-- Blog Post Section -->
     <article class="post" id="blogPostSection">
-
       <section id="introduction" class="section-block">
         <h2>Introduction</h2>
         <p>
@@ -49,17 +52,18 @@
         <p>
           The poem begins with an almost stark declaration of loss: “I lost my talk / The talk you took away.” Just eight words in, there’s a haunting clarity. Instead of a drawn-out lament, we get a blunt truth. Immediately, Joe sets the tone of deprivation. But the more I read, the more I realized that her words also reveal a dogged refusal to disappear. Yes, someone else might have “taken” her talk, but she still stands here telling us about it. There’s a quiet fight underneath the pain—a fight that leads us toward the poem’s deeper meaning: the speaker’s struggle to reclaim not just a voice, but an entire cultural identity.
         </p>
-
         <figure class="image-container">
-          <img src="photo1.jpg" />
-          <figcaption>Cultural expression and community.</figcaption>
+          <img src="photo1.jpg" alt="People Culture">
+          <figcaption>
+            Marxcine. (2020, February 20). <span class="image-title">People Culture - Free photo on Pixabay.</span> Pixabay. https://pixabay.com/photos/people-culture-indigenous-4860198/
+          </figcaption>
         </figure>
       </section>
 
       <section id="analysis" class="section-block">
         <h2>Analysis</h2>
         <p>
-          Everything in the poem, from its short, deliberate lines to its careful repetition, works together to show how cultural and linguistic identity can be shaped—or twisted—by external forces. Joe uses lines like “I speak like you / I think like you / I create like you.” And at first glance, to me these words just seemed like an admission of defeat. But as I kept reading, I noticed how they actually reflect the other side back onto itself. In highlighting how the speaker can “perform” in this forced way, Joe reveals exactly what’s been stolen. 
+          Everything in the poem, from its short, deliberate lines to its careful repetition, works together to show how cultural and linguistic identity can be shaped—or twisted—by external forces. Joe uses lines like “I speak like you / I think like you / I create like you.” And at first glance, to me these words just seemed like an admission of defeat. But as I kept reading, I noticed how they actually reflect the other side back onto itself. In highlighting how the speaker can “perform” in this forced way, Joe reveals exactly what’s been stolen.
         </p>
         <p>
           This is how the poem builds its meaning: through the contrast between a quiet, almost resigned tone and a stark awareness of what has been lost. That tension climaxes in the longing to regain the speaker’s own way of thinking and creating, emphasized by those repeated “like you” lines. There’s a jarring sadness in her having to conform, which the poem transforms into a call for restoration. By the end, we see a clear desire to reclaim something fundamental—her culture and voice—making the text a testament to resilience as much as it is an acknowledgment of grief.
@@ -68,8 +72,10 @@
           While this piece is rooted in the historical experiences of Indigenous peoples—particularly those forced into residential schools—the heartbreak and yearning for self-reclamation feel universal. Anyone who has ever been pressured to hide or alter a fundamental part of themselves can identify with Joe’s emotional landscape. The imagery of having language “snatched away” might bring to mind different forms of cultural assimilation: immigrants losing their mother tongue, or individuals whose accents or dialects are mocked into oblivion. There’s both a timeless and urgent quality to this message, reminding us that these struggles aren’t relics of the past.
         </p>
         <figure class="image-container">
-          <img src="photo2.jpg"/>
-          <figcaption>Forced integration, two lives.</figcaption>
+          <img src="photo2.jpg" alt="Cultural Awareness">
+          <figcaption>
+            <span class="image-title">Cultural Awareness – Telegraph Road Clinic.</span> (n.d.). https://www.telegraphroadclinic.com.au/cultural-awareness/
+          </figcaption>
         </figure>
       </section>
 
@@ -83,7 +89,6 @@
         </p>
       </section>
 
-
       <section id="conclusion" class="section-block">
         <h2>Conclusion</h2>
         <p>
@@ -92,208 +97,209 @@
         <p>
           By demonstrating how Rita Joe threads together personal testimony with a call for self-recovery and peace, “I Lost My Talk” leaves us with a compelling truth, that even when everything else is taken, we can still rediscover our stories, reclaim our words, and stand firm in our sense of self. It's a timeless invitation to honor our heritage and carry it forward—speaking as loudly, or as softly, as we need to.
         </p>
+
+        <!-- References button at the end of blog post -->
+        <div style="text-align: center; margin-top: 2rem;">
+          <button class="modal-btn" id="goToReferencesBtn">View References</button>
+        </div>
       </section>
     </article>
+    <!-- End Blog Post Section -->
 
+    <!-- Poem Analysis Chart Section -->
     <section id="analysisChartSection" class="hidden-analysis">
       <h2>Poem Analysis Chart</h2>
       <p><em>Comparing “I, Too” by Langston Hughes and “I Lost My Talk” by Rita Joe</em></p>
 
       <div class="analysis-table-wrapper">
-
-
-<table class="analysis-table">
-    <thead>
-      <tr>
-        <th>Analysis Prompt</th>
-        <th>“I, Too” by Langston Hughes</th>
-        <th>“I Lost My Talk” by Rita Joe</th>
-      </tr>
-    </thead>
-    <tbody>
-  
-
-      <tr>
-        <td><strong>What can you learn from the title of the poem?</strong></td>
-        <td>
-          The title <em>“I, Too”</em> signals a desire for unity and visibility. By isolating “I,” the poem stresses 
-          the speaker’s belonging in a context that tries to exclude him. The comma further emphasizes that 
-          “I, too” should be included among those who matter.
-        </td>
-        <td>
-          The title <em>“I Lost My Talk”</em> hints at a metaphor for losing one’s sense of identity. The word 
-          “lost” sets a somber tone, suggesting a deep grief over a taken or silenced cultural expression. 
-          This underscores how essential “talk” (or voice) is to the poem’s theme.
-        </td>
-      </tr>
-  
-
-      <tr>
-        <td><strong>Identify and explain poetic devices in the poem.</strong></td>
-        <td>
-          <ul>
-            <li><strong>Assonance/Consonance:</strong> “company comes,” “And grow strong” create a subtle 
-              harmony and add a rhythmic emphasis.</li>
-            <li><strong>Alliteration:</strong> “company comes” is a neat alliterative moment that helps unify 
-              the line.</li>
-            <li><strong>Metaphor:</strong> The poem’s entire setting (the “kitchen”) is a metaphor for forced 
-              segregation. “Darker brother” stands for African Americans collectively.</li>
-            <li><strong>Anaphora:</strong> Phrases like “And eat well, / And grow strong” show repeated “And” 
-              at line openings, amplifying the speaker’s resilience.</li>
-          </ul>
-        </td>
-        <td>
-          <ul>
-            <li><strong>Assonance:</strong> Heard in “ways I say, / Your way,” or “hand and,” giving lines a 
-              gentle echo.</li>
-            <li><strong>Alliteration:</strong> “The talk you took away,” “The scrambled ballad” highlight 
-              repetition of consonants.</li>
-            <li><strong>Metaphor:</strong> “Talk” represents the poet’s cultural identity. “Snatching” it 
-              reflects ethnic cleansing or forced assimilation.</li>
-            <li><strong>Repetition – Epistrophe:</strong> “I speak like you / I think like you / I create 
-              like you.” The recurring “like you” underscores the speaker’s imposed mimicry.</li>
-            <li><strong>Simile:</strong> “I speak like you…” uses “like” to compare the speaker’s forced 
-              speech to the oppressor’s.</li>
-          </ul>
-        </td>
-      </tr>
-  
-
-      <tr>
-        <td>
-          <strong>How are the words arranged? What is the effect on the reader?</strong>
-        </td>
-        <td>
-          Hughes arranges short, direct lines that shift from a subdued tone (“They send me…”) to a 
-          confident, forward-looking stance (“Tomorrow, / I’ll be at the table”). The structure intensifies 
-          the journey from marginalization to empowerment, so readers feel both the speaker’s frustration 
-          and determination.
-        </td>
-        <td>
-          Rita Joe uses spare, blunt lines—“I lost my talk / The talk you took away”—that land like honest 
-          confessions. The brevity forces the reader to confront a stark loss head-on. It evokes immediate 
-          empathy for the speaker’s situation, emphasizing the starkness of cultural erasure.
-        </td>
-      </tr>
-  
-
-      <tr>
-        <td>
-          <strong>Identify word clusters to help you determine the theme or main idea of your poem.</strong>
-        </td>
-        <td>
-          Clusters like “They,” “send,” “kitchen,” “laugh,” and “grow strong” revolve around oppression, 
-          defiance, and eventual triumph. These words drive home the poem’s main idea: the speaker refuses 
-          to be relegated to an inferior space or identity.
-        </td>
-        <td>
-          “Lost,” “talk,” “took away,” “snatched,” “let me find” convey forced integration and the speaker’s 
-          longing to reclaim what was taken. They point to a main theme of cultural dispossession and a 
-          struggle for self-restoration.
-        </td>
-      </tr>
-  
-
-      <tr>
-        <td>
-          <strong>Focus questions:</strong><br>
-          1) What is the theme or main idea of your poem? How do you know?<br>
-          2) How does the title relate to the theme?
-        </td>
-        <td>
-          <strong>Theme/Main Idea:</strong> Showcasing ongoing racial discrimination and voicing a sense of 
-          resilience. The poem depicts a social hierarchy where the speaker is unfairly cast aside, yet he 
-          declares he “too” is part of America.<br><br>
-          <strong>Title &amp; Theme Connection:</strong> “I, Too” directly ties into the speaker’s assertion 
-          that he belongs, challenging racial exclusion.
-        </td>
-        <td>
-          <strong>Theme/Main Idea:</strong> Shining a light on an Indigenous speaker’s experience, likely in 
-          a residential school, and her desire to reclaim identity.<br><br>
-          <strong>Title &amp; Theme Connection:</strong> “I Lost My Talk” underlines that the poem revolves 
-          around a stolen cultural voice—and her hope to find it again.
-        </td>
-      </tr>
-  
-
-      <tr>
-        <td>
-          <strong>What image or line from the poem stood out to you? Explain.<br>
-          If you could ask the poet a question, what might it be? Why?</strong>
-        </td>
-        <td>
-          <strong>Standout Line:</strong> “But I laugh,” because it captures a quick spark of resilience in 
-          a hostile setting.<br><br>
-          <strong>Question:</strong> “How did you (or the speaker) discover beauty and strength in a world 
-          telling you otherwise?” I’d ask this to understand the process of finding self-worth amid 
-          constant discrimination.
-        </td>
-        <td>
-          <strong>Standout Line:</strong> “Your way is more powerful.” It strikes me as either forced 
-          acknowledgment or an attempt to appease. It feels heartbreaking that she must admit this at all.<br><br>
-          <strong>Question:</strong> “Why aren’t you/the speaker angry?” Given the trauma, I’d expect 
-          bitterness. Instead, the speaker forgives and extends empathy, which I find both admirable 
-          and intriguing.
-        </td>
-      </tr>
-  
-
-      <tr>
-        <td>
-          <strong>Do you notice the poet’s gender reflected in their writing?<br>
-          Do you notice any other part of the poet’s intersectionality? Explain.</strong>
-        </td>
-        <td>
-          Hughes uses terms like “brother,” revealing a male narrator, but it’s overshadowed by race as 
-          the poem’s core concern. The poet, being a Black man, channels his intersectionality primarily 
-          through the lens of racial identity. Gender doesn’t dominate the poem, likely because 
-          discrimination based on race was more pressing in his context.
-        </td>
-        <td>
-          Rita Joe’s poem reveals her Indigeneity more than her womanhood. Terms like “girl” or “she” 
-          aren’t focal points; instead, the cultural clash and residential school experiences define her 
-          intersectional lens. The poem is shaped by her identity as an Indigenous woman, but specifically, 
-          the oppression of her culture takes center stage.
-        </td>
-      </tr>
-  
-      <!-- 8. Resilience -->
-      <tr>
-        <td><strong>How does the poet comment on resilience in this poem?</strong></td>
-        <td>
-          Hughes doesn’t overtly say “resilience,” but it’s shown. He’s sent to eat in the kitchen, yet 
-          he laughs, grows strong, and visualizes a day when he’ll be accepted at the table. That quiet 
-          confidence is the poem’s core statement on resilience.
-        </td>
-        <td>
-          Joe also doesn’t say “resilience” outright, but we see it in her gentle refusal to hate, and in 
-          her yearning to reclaim her lost talk. Even though part of her identity was taken, she’s still 
-          determined to reconnect with it—an act of profound resilience.
-        </td>
-      </tr>
-  
-    </tbody>
-  </table>
-  
-
-  
+        <table class="analysis-table">
+            <thead>
+              <tr>
+                <th>Analysis Prompt</th>
+                <th>“I, Too” by Langston Hughes</th>
+                <th>“I Lost My Talk” by Rita Joe</th>
+              </tr>
+            </thead>
+            <tbody>
+          
+        
+              <tr>
+                <td><strong>What can you learn from the title of the poem?</strong></td>
+                <td>
+                  The title <em>“I, Too”</em> signals a desire for unity and visibility. By isolating “I,” the poem stresses 
+                  the speaker’s belonging in a context that tries to exclude him. The comma further emphasizes that 
+                  “I, too” should be included among those who matter.
+                </td>
+                <td>
+                  The title <em>“I Lost My Talk”</em> hints at a metaphor for losing one’s sense of identity. The word 
+                  “lost” sets a somber tone, suggesting a deep grief over a taken or silenced cultural expression. 
+                  This underscores how essential “talk” (or voice) is to the poem’s theme.
+                </td>
+              </tr>
+          
+        
+              <tr>
+                <td><strong>Identify and explain poetic devices in the poem.</strong></td>
+                <td>
+                  <ul>
+                    <li><strong>Assonance/Consonance:</strong> “company comes,” “And grow strong” create a subtle 
+                      harmony and add a rhythmic emphasis.</li>
+                    <li><strong>Alliteration:</strong> “company comes” is a neat alliterative moment that helps unify 
+                      the line.</li>
+                    <li><strong>Metaphor:</strong> The poem’s entire setting (the “kitchen”) is a metaphor for forced 
+                      segregation. “Darker brother” stands for African Americans collectively.</li>
+                    <li><strong>Anaphora:</strong> Phrases like “And eat well, / And grow strong” show repeated “And” 
+                      at line openings, amplifying the speaker’s resilience.</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li><strong>Assonance:</strong> Heard in “ways I say, / Your way,” or “hand and,” giving lines a 
+                      gentle echo.</li>
+                    <li><strong>Alliteration:</strong> “The talk you took away,” “The scrambled ballad” highlight 
+                      repetition of consonants.</li>
+                    <li><strong>Metaphor:</strong> “Talk” represents the poet’s cultural identity. “Snatching” it 
+                      reflects ethnic cleansing or forced assimilation.</li>
+                    <li><strong>Repetition – Epistrophe:</strong> “I speak like you / I think like you / I create 
+                      like you.” The recurring “like you” underscores the speaker’s imposed mimicry.</li>
+                    <li><strong>Simile:</strong> “I speak like you…” uses “like” to compare the speaker’s forced 
+                      speech to the oppressor’s.</li>
+                  </ul>
+                </td>
+              </tr>
+          
+        
+              <tr>
+                <td>
+                  <strong>How are the words arranged? What is the effect on the reader?</strong>
+                </td>
+                <td>
+                  Hughes arranges short, direct lines that shift from a subdued tone (“They send me…”) to a 
+                  confident, forward-looking stance (“Tomorrow, / I’ll be at the table”). The structure intensifies 
+                  the journey from marginalization to empowerment, so readers feel both the speaker’s frustration 
+                  and determination.
+                </td>
+                <td>
+                  Rita Joe uses spare, blunt lines—“I lost my talk / The talk you took away”—that land like honest 
+                  confessions. The brevity forces the reader to confront a stark loss head-on. It evokes immediate 
+                  empathy for the speaker’s situation, emphasizing the starkness of cultural erasure.
+                </td>
+              </tr>
+          
+        
+              <tr>
+                <td>
+                  <strong>Identify word clusters to help you determine the theme or main idea of your poem.</strong>
+                </td>
+                <td>
+                  Clusters like “They,” “send,” “kitchen,” “laugh,” and “grow strong” revolve around oppression, 
+                  defiance, and eventual triumph. These words drive home the poem’s main idea: the speaker refuses 
+                  to be relegated to an inferior space or identity.
+                </td>
+                <td>
+                  “Lost,” “talk,” “took away,” “snatched,” “let me find” convey forced integration and the speaker’s 
+                  longing to reclaim what was taken. They point to a main theme of cultural dispossession and a 
+                  struggle for self-restoration.
+                </td>
+              </tr>
+          
+        
+              <tr>
+                <td>
+                  <strong>Focus questions:</strong><br>
+                  1) What is the theme or main idea of your poem? How do you know?<br>
+                  2) How does the title relate to the theme?
+                </td>
+                <td>
+                  <strong>Theme/Main Idea:</strong> Showcasing ongoing racial discrimination and voicing a sense of 
+                  resilience. The poem depicts a social hierarchy where the speaker is unfairly cast aside, yet he 
+                  declares he “too” is part of America.<br><br>
+                  <strong>Title &amp; Theme Connection:</strong> “I, Too” directly ties into the speaker’s assertion 
+                  that he belongs, challenging racial exclusion.
+                </td>
+                <td>
+                  <strong>Theme/Main Idea:</strong> Shining a light on an Indigenous speaker’s experience, likely in 
+                  a residential school, and her desire to reclaim identity.<br><br>
+                  <strong>Title &amp; Theme Connection:</strong> “I Lost My Talk” underlines that the poem revolves 
+                  around a stolen cultural voice—and her hope to find it again.
+                </td>
+              </tr>
+          
+        
+              <tr>
+                <td>
+                  <strong>What image or line from the poem stood out to you? Explain.<br>
+                  If you could ask the poet a question, what might it be? Why?</strong>
+                </td>
+                <td>
+                  <strong>Standout Line:</strong> “But I laugh,” because it captures a quick spark of resilience in 
+                  a hostile setting.<br><br>
+                  <strong>Question:</strong> “How did you (or the speaker) discover beauty and strength in a world 
+                  telling you otherwise?” I’d ask this to understand the process of finding self-worth amid 
+                  constant discrimination.
+                </td>
+                <td>
+                  <strong>Standout Line:</strong> “Your way is more powerful.” It strikes me as either forced 
+                  acknowledgment or an attempt to appease. It feels heartbreaking that she must admit this at all.<br><br>
+                  <strong>Question:</strong> “Why aren’t you/the speaker angry?” Given the trauma, I’d expect 
+                  bitterness. Instead, the speaker forgives and extends empathy, which I find both admirable 
+                  and intriguing.
+                </td>
+              </tr>
+          
+        
+              <tr>
+                <td>
+                  <strong>Do you notice the poet’s gender reflected in their writing?<br>
+                  Do you notice any other part of the poet’s intersectionality? Explain.</strong>
+                </td>
+                <td>
+                  Hughes uses terms like “brother,” revealing a male narrator, but it’s overshadowed by race as 
+                  the poem’s core concern. The poet, being a Black man, channels his intersectionality primarily 
+                  through the lens of racial identity. Gender doesn’t dominate the poem, likely because 
+                  discrimination based on race was more pressing in his context.
+                </td>
+                <td>
+                  Rita Joe’s poem reveals her Indigeneity more than her womanhood. Terms like “girl” or “she” 
+                  aren’t focal points; instead, the cultural clash and residential school experiences define her 
+                  intersectional lens. The poem is shaped by her identity as an Indigenous woman, but specifically, 
+                  the oppression of her culture takes center stage.
+                </td>
+              </tr>
+          
+              <!-- 8. Resilience -->
+              <tr>
+                <td><strong>How does the poet comment on resilience in this poem?</strong></td>
+                <td>
+                  Hughes doesn’t overtly say “resilience,” but it’s shown. He’s sent to eat in the kitchen, yet 
+                  he laughs, grows strong, and visualizes a day when he’ll be accepted at the table. That quiet 
+                  confidence is the poem’s core statement on resilience.
+                </td>
+                <td>
+                  Joe also doesn’t say “resilience” outright, but we see it in her gentle refusal to hate, and in 
+                  her yearning to reclaim her lost talk. Even though part of her identity was taken, she’s still 
+                  determined to reconnect with it—an act of profound resilience.
+                </td>
+              </tr>
+          
+            </tbody>
+          </table>
       </div>
-
 
       <div style="margin-top:1rem;">
         <button class="modal-btn" id="backToBlogBtn">Go to Blog Post</button>
       </div>
     </section>
-
+    <!-- End Poem Analysis Chart Section -->
   </main>
-  
+
   <footer class="site-footer">
     <p>ENG4U | 2.3 - The Power of Words | Adam Laypan</p>
   </footer>
 
-  <!-- Dark Mode Toggle Button -->
+  <!-- Dark Mode Toggle -->
   <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">☽</button>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
