@@ -454,7 +454,7 @@ body.dark-mode .dark-mode-toggle {
 .welcome-modal-content p {
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 1.5rem;
-    color: #D4AF37;
+    color: #be8442;
 }
 
 .btn-container {
@@ -464,7 +464,7 @@ body.dark-mode .dark-mode-toggle {
 }
 
 .modal-btn {
-    background: #C19A78;
+    background: #be9f83;
     color: #2E2A25;
     border: none;
     padding: 0.75rem 1.25rem;
