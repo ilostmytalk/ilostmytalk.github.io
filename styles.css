@@ -1,0 +1,472 @@
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling to anchors */
+    /* Apply transitions at the top-level so changes in background and color propagate smoothly */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #FAF5EC url('subtle-pattern.png') repeat;
+    /* Ensure body also transitions its color and background for text color changes */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode by default */
+body.dark-mode {
+    background: #2E2A25 url('subtle-pattern.png') repeat;
+    color: #EAE4DC;
+}
+
+/* Header */
+.site-header {
+    background: url('indigenous.jpg') no-repeat center 70%/cover;
+    position: relative; 
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+    border-bottom: 5px solid #8B5E3C;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Gradient overlay to provide better contrast */
+.site-header::before {
+    content: "";
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+
+/* Semi-transparent background box behind text */
+.header-content {
+    position: relative;
+    z-index: 2;
+    font-family: 'Merriweather', serif;
+    background: rgba(0,0,0,0.4); /* Semi-transparent black background */
+    display: inline-block;
+    padding: 1.5rem 2rem;
+    border-radius: 6px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.blog-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    color: #f0f0f0;
+    text-shadow: none;
+}
+
+/* Navigation */
+.top-nav {
+    background: #FFF5EB; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom: 2px dotted #8B5E3C;
+    border-radius: 0 0 8px 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.75rem;
+}
+
+.top-nav li {
+    margin: 0 1.5rem;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #8B5E3C;
+    font-weight: 600;
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.top-nav a:hover {
+    color: #fff;
+    background: #8B5E3C;
+}
+
+/* Main Content */
+.content {
+    max-width: 850px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    background: #FFF9F3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 2px solid #E6DACB;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.post {
+    padding: 2rem;
+}
+
+/* Section Headings */
+.section-block {
+    margin-bottom: 2.5rem;
+    transition: color 0.3s ease;
+}
+
+.section-block h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    position: relative;
+    color: #8B5E3C;
+    font-family: 'Merriweather', serif;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.section-block h2::after {
+    content: "";
+    display: inline-block;
+    width: 50px;
+    height: 10px;
+    background: url('small-flourish.png') no-repeat center/contain;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* Images */
+.image-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #E6DACB;
+    border-radius: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.image-container figcaption {
+    font-size: 0.9rem;
+    color: #5C4A3B;
+    margin-top: 0.5rem;
+    font-style: italic;
+    font-family: 'Open Sans', sans-serif;
+    transition: color 0.3s ease;
+}
+
+/* Poem Excerpt */
+.poem-excerpt {
+    background: #F0ECE7;
+    border-left: 4px solid #8B5E3C;
+    padding: 1rem;
+    font-style: italic;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    font-family: 'Merriweather', serif;
+    color: #463B33;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.poem-excerpt cite {
+    display: block;
+    text-align: right;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #5C4A3B;
+    font-family: 'Open Sans', sans-serif;
+    transition: color 0.3s ease;
+}
+
+/* Footer */
+.site-footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    border-top: 5px solid #8B5E3C;
+    font-size: 0.9rem;
+    font-family: 'Merriweather', serif;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #2E2A25 url('subtle-pattern.png') repeat;
+    color: #EAE4DC;
+}
+
+body.dark-mode .site-header {
+    border-bottom-color: #C19A78;
+}
+
+body.dark-mode .top-nav {
+    background: #3C342E;
+    border-bottom-color: #C19A78;
+}
+
+body.dark-mode .top-nav a {
+    color: #E9D9C4;
+}
+
+body.dark-mode .top-nav a:hover {
+    background: #C19A78;
+    color: #2E2A25;
+}
+
+body.dark-mode .content {
+    background: #3C342E;
+    border-color: #C19A78;
+}
+
+body.dark-mode .section-block h2 {
+    color: #C19A78;
+}
+
+body.dark-mode .poem-excerpt {
+    background: #473E35;
+    border-left-color: #C19A78;
+    color: #E9D9C4;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .image-container img {
+    border-color: #C19A78;
+}
+
+body.dark-mode .image-container figcaption {
+    color: #D9C8B4;
+}
+
+body.dark-mode .site-footer {
+    background: #1F1B18;
+    border-top-color: #C19A78;
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #8B5E3C;
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 50px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    background: #6f452e;
+}
+
+body.dark-mode .dark-mode-toggle {
+    background: #C19A78;
+    color: #2E2A25;
+}
+/* Additional styling for analysis chart section, optional */
+/* ========== MODAL STYLES ========== */
+/* =========================================================
+   MODAL & BACKDROP UPDATES
+   ========================================================= */
+
+/* Make the modal container initially transparent and hidden */
+/* ===================================== 
+   ORIGINAL BLOG & DARK MODE STYLES
+   (Preserve your existing code above this line)
+   ====================================== */
+
+/* 
+   Keep all your original rules for .analysis-table, 
+   .analysis-table-wrapper, .site-header, .content, etc.
+   We'll add or override rules BELOW without removing 
+   your table styling.
+*/
+
+/* ========== MODAL STYLES ========== */
+.welcome-modal {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    display: none; /* Hidden by default, toggled with .show-modal */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.4s ease; /* Fade in/out transition */
+}
+
+/* Blurred & darkened backdrop with a pseudo-element */
+.welcome-modal::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    backdrop-filter: blur(6px); /* Adjust blur strength as desired */
+    background: rgba(0,0,0,0.5); /* Dark overlay */
+    z-index: 1; /* Sits behind the modal content */
+}
+
+/* When .show-modal is added, the modal is visible & fully opaque */
+.welcome-modal.show-modal {
+    display: flex; /* Switch from 'none' to 'flex' so we see the modal */
+    opacity: 1;    /* Fade in */
+}
+
+/* Optional fade-out if you want the modal to animate away 
+   before removing the .show-modal class in JavaScript.
+*/
+.welcome-modal.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* The modal content box itself */
+.welcome-modal-content {
+    position: relative;
+    z-index: 2; /* Above the blurred backdrop */
+    background: #222; /* Dark background to contrast text */
+    color: #f2f2f2;   /* Light text */
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+    animation: scaleIn 0.4s ease; /* Subtle pop-in */
+}
+
+@keyframes scaleIn {
+  0%   { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+.welcome-modal-content h2 {
+    margin-top: 0;
+    font-family: 'Merriweather', serif;
+    color: #fff;
+}
+
+.welcome-modal-content p {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 1.5rem;
+    color: #ddd;
+}
+
+/* Container for the two modal buttons */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Modal buttons styling */
+.modal-btn {
+    background: #8B5E3C;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-family: 'Merriweather', serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.modal-btn:hover {
+    background: #6f452e;
+    transform: translateY(-1px);
+}
+
+/* ========== OPTIONAL ANALYSIS CHART SPECIFICS ========== */
+/* (Retain your original analysis-table styles if they're working.)
+   Here are the typical rules. Make sure none conflict or override 
+   incorrectly. Just unify them so everything is consistent:
+*/
+.analysis-table-wrapper {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.analysis-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+.analysis-table th,
+.analysis-table td {
+    border: 1px solid #E6DACB;
+    padding: 1rem;
+    vertical-align: top;
+}
+
+.analysis-table thead {
+    background: #FFF5EB;
+}
+
+.analysis-table th {
+    text-align: left;
+    color: #8B5E3C;
+    font-weight: 700;
+}
+
+.analysis-table td ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+/* "Return to Blog Post" button */
+#backToBlogBtn {
+    background: #8B5E3C;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-family: 'Merriweather', serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#backToBlogBtn:hover {
+    background: #6f452e;
+    transform: translateY(-1px);
+}
