@@ -1,6 +1,6 @@
 html {
-    scroll-behavior: smooth; /* Enables smooth scrolling to anchors */
-    /* Apply transitions at the top-level so changes in background and color propagate smoothly */
+    scroll-behavior: smooth;
+   
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -10,17 +10,17 @@ body {
     line-height: 1.6;
     color: #333;
     background: #FAF5EC url('subtle-pattern.png') repeat;
-    /* Ensure body also transitions its color and background for text color changes */
+   
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark mode by default */
+
 body.dark-mode {
     background: #2E2A25 url('subtle-pattern.png') repeat;
     color: #EAE4DC;
 }
 
-/* Header */
+
 .site-header {
     background: url('indigenous.jpg') no-repeat center 70%/cover;
     position: relative; 
@@ -33,7 +33,7 @@ body.dark-mode {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Gradient overlay to provide better contrast */
+
 .site-header::before {
     content: "";
     position: absolute;
@@ -43,12 +43,12 @@ body.dark-mode {
     mix-blend-mode: multiply;
 }
 
-/* Semi-transparent background box behind text */
+
 .header-content {
     position: relative;
     z-index: 2;
     font-family: 'Merriweather', serif;
-    background: rgba(0,0,0,0.4); /* Semi-transparent black background */
+    background: rgba(0,0,0,0.4);
     display: inline-block;
     padding: 1.5rem 2rem;
     border-radius: 6px;
@@ -72,7 +72,7 @@ body.dark-mode {
     text-shadow: none;
 }
 
-/* Navigation */
+
 .top-nav {
     background: #FFF5EB; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -109,7 +109,7 @@ body.dark-mode {
     background: #8B5E3C;
 }
 
-/* Main Content */
+
 .content {
     max-width: 850px;
     margin: 2rem auto;
@@ -125,7 +125,7 @@ body.dark-mode {
     padding: 2rem;
 }
 
-/* Section Headings */
+
 .section-block {
     margin-bottom: 2.5rem;
     transition: color 0.3s ease;
@@ -152,7 +152,7 @@ body.dark-mode {
     vertical-align: middle;
 }
 
-/* Images */
+
 .image-container {
     margin: 2rem 0;
     text-align: center;
@@ -180,7 +180,7 @@ body.dark-mode {
     transition: color 0.3s ease;
 }
 
-/* Poem Excerpt */
+
 .poem-excerpt {
     background: #F0ECE7;
     border-left: 4px solid #8B5E3C;
@@ -204,7 +204,7 @@ body.dark-mode {
     transition: color 0.3s ease;
 }
 
-/* Footer */
+
 .site-footer {
     background: #333;
     color: #fff;
@@ -217,7 +217,7 @@ body.dark-mode {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Dark Mode Styles */
+
 body.dark-mode {
     background: #2E2A25 url('subtle-pattern.png') repeat;
     color: #EAE4DC;
@@ -270,7 +270,7 @@ body.dark-mode .site-footer {
     border-top-color: #C19A78;
 }
 
-/* Dark Mode Toggle Button */
+
 .dark-mode-toggle {
     position: fixed;
     bottom: 20px;
@@ -297,41 +297,22 @@ body.dark-mode .dark-mode-toggle {
     background: #C19A78;
     color: #2E2A25;
 }
-/* Additional styling for analysis chart section, optional */
-/* ========== MODAL STYLES ========== */
-/* =========================================================
-   MODAL & BACKDROP UPDATES
-   ========================================================= */
 
-/* Make the modal container initially transparent and hidden */
-/* ===================================== 
-   ORIGINAL BLOG & DARK MODE STYLES
-   (Preserve your existing code above this line)
-   ====================================== */
-
-/* 
-   Keep all your original rules for .analysis-table, 
-   .analysis-table-wrapper, .site-header, .content, etc.
-   We'll add or override rules BELOW without removing 
-   your table styling.
-*/
-
-/* ========== MODAL STYLES ========== */
 .welcome-modal {
     position: fixed;
     top: 0; 
     left: 0; 
     width: 100%; 
     height: 100%;
-    display: none; /* Hidden by default, toggled with .show-modal */
+    display: none;
     align-items: center;
     justify-content: center;
     z-index: 9999;
     opacity: 0;
-    transition: opacity 0.4s ease; /* Fade in/out transition */
+    transition: opacity 0.4s ease;
 }
 
-/* Blurred & darkened backdrop with a pseudo-element */
+
 .welcome-modal::before {
     content: "";
     position: absolute;
@@ -339,37 +320,33 @@ body.dark-mode .dark-mode-toggle {
     left: 0; 
     right: 0; 
     bottom: 0;
-    backdrop-filter: blur(6px); /* Adjust blur strength as desired */
-    background: rgba(0,0,0,0.5); /* Dark overlay */
-    z-index: 1; /* Sits behind the modal content */
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
 }
 
-/* When .show-modal is added, the modal is visible & fully opaque */
+
 .welcome-modal.show-modal {
-    display: flex; /* Switch from 'none' to 'flex' so we see the modal */
-    opacity: 1;    /* Fade in */
+    display: flex;
+    opacity: 1;   
 }
 
-/* Optional fade-out if you want the modal to animate away 
-   before removing the .show-modal class in JavaScript.
-*/
 .welcome-modal.fade-out {
     opacity: 0;
     pointer-events: none;
 }
 
-/* The modal content box itself */
 .welcome-modal-content {
     position: relative;
-    z-index: 2; /* Above the blurred backdrop */
-    background: #222; /* Dark background to contrast text */
-    color: #f2f2f2;   /* Light text */
+    z-index: 2; 
+    background: #222; 
+    color: #f2f2f2;   
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
     width: 90%;
     max-width: 450px;
-    animation: scaleIn 0.4s ease; /* Subtle pop-in */
+    animation: scaleIn 0.4s ease; 
 }
 
 @keyframes scaleIn {
@@ -389,14 +366,12 @@ body.dark-mode .dark-mode-toggle {
     color: #ddd;
 }
 
-/* Container for the two modal buttons */
 .btn-container {
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
-/* Modal buttons styling */
 .modal-btn {
     background: #8B5E3C;
     color: #fff;
@@ -414,11 +389,6 @@ body.dark-mode .dark-mode-toggle {
     transform: translateY(-1px);
 }
 
-/* ========== OPTIONAL ANALYSIS CHART SPECIFICS ========== */
-/* (Retain your original analysis-table styles if they're working.)
-   Here are the typical rules. Make sure none conflict or override 
-   incorrectly. Just unify them so everything is consistent:
-*/
 .analysis-table-wrapper {
     overflow-x: auto;
     margin-top: 1rem;
@@ -453,7 +423,7 @@ body.dark-mode .dark-mode-toggle {
     padding-left: 1.2rem;
 }
 
-/* "Return to Blog Post" button */
+
 #backToBlogBtn {
     background: #8B5E3C;
     color: #fff;
@@ -464,9 +434,31 @@ body.dark-mode .dark-mode-toggle {
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
+    margin-bottom: 5%;
 }
 
 #backToBlogBtn:hover {
     background: #6f452e;
     transform: translateY(-1px);
+}
+
+#goToChartLink {
+    color: #D4AF37;
+    animation: subtleGold 3s infinite ease-in-out;
+    font-weight: 700;
+}
+
+@keyframes subtleGold {
+    0% {
+        color: #C19A78;
+        transform: scale(1);
+    }
+    50% {
+        color: #E9D9C4;
+        transform: scale(1.05);
+    }
+    100% {
+        color: #C19A78;
+        transform: scale(1);
+    }
 }
